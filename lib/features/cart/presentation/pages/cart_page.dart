@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lingxi_ai_app/features/cart/data/mock/cartMockData.dart';
-import 'package:lingxi_ai_app/features/cart/domain/entities/cartItem.dart';
-import 'package:lingxi_ai_app/features/cart/domain/entities/cartShop.dart';
+import 'package:lingxi_ai_app/features/cart/data/mock/cart_mock_data.dart';
+import 'package:lingxi_ai_app/features/cart/domain/entities/cart_item.dart';
+import 'package:lingxi_ai_app/features/cart/domain/entities/cart_shop.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});

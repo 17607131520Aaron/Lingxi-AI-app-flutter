@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lingxi_ai_app/app/router/app_routes.dart';
-import 'package:lingxi_ai_app/features/home/data/mock/homeMockData.dart';
-import 'package:lingxi_ai_app/features/home/domain/entities/homeCategory.dart';
-import 'package:lingxi_ai_app/features/home/domain/entities/recommendProduct.dart';
+import 'package:lingxi_ai_app/features/home/data/mock/home_mock_data.dart';
+import 'package:lingxi_ai_app/features/home/domain/entities/home_category.dart';
+import 'package:lingxi_ai_app/features/home/domain/entities/recommend_product.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

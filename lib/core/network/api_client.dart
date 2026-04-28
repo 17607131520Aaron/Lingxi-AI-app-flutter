@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 
 import '../auth/token_store.dart';
-import '../feedback/appMessenger.dart';
-import 'apiException.dart';
-import 'apiResult.dart';
+import '../feedback/app_messenger.dart';
+import 'api_exception.dart';
+import 'api_result.dart';
 
 typedef JsonMap = Map<String, dynamic>;
 typedef JsonParser<T> = T Function(dynamic data);

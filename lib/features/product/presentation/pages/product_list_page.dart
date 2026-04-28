@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lingxi_ai_app/features/product/data/mock/productCategoryMock.dart';
+import 'package:lingxi_ai_app/features/product/data/mock/product_category_mock.dart';
 
 /// 分类页（参考你提供的左侧分类 + 右侧网格的设计）
 class ProductListPage extends StatefulWidget {

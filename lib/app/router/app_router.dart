@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lingxi_ai_app/app/presentation/pages/not_found_page.dart';
 import 'package:lingxi_ai_app/app/router/app_routes.dart';
-import 'package:lingxi_ai_app/features/auth/presentation/pages/loginPage.dart';
-import 'package:lingxi_ai_app/features/cart/presentation/pages/cartPage.dart';
-import 'package:lingxi_ai_app/features/home/presentation/pages/mainTabPage.dart';
-import 'package:lingxi_ai_app/features/product/presentation/pages/productDetailPage.dart';
-import 'package:lingxi_ai_app/features/product/presentation/pages/productListPage.dart';
-import 'package:lingxi_ai_app/features/profile/presentation/pages/profilePage.dart';
+import 'package:lingxi_ai_app/features/auth/presentation/pages/login_page.dart';
+import 'package:lingxi_ai_app/features/cart/presentation/pages/cart_page.dart';
+import 'package:lingxi_ai_app/features/home/presentation/pages/main_tab_page.dart';
+import 'package:lingxi_ai_app/features/product/presentation/pages/product_detail_page.dart';
+import 'package:lingxi_ai_app/features/product/presentation/pages/product_list_page.dart';
+import 'package:lingxi_ai_app/features/profile/presentation/pages/profile_page.dart';
 
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {

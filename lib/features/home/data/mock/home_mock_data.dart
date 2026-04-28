@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lingxi_ai_app/features/home/domain/entities/homeCategory.dart';
-import 'package:lingxi_ai_app/features/home/domain/entities/recommendProduct.dart';
+import 'package:lingxi_ai_app/features/home/domain/entities/home_category.dart';
+import 'package:lingxi_ai_app/features/home/domain/entities/recommend_product.dart';
 
 class HomeMockData {
   static const List<HomeCategory> categories = [

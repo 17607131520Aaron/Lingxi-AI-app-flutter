@@ -1,5 +1,5 @@
-import '../storage/appStorage.dart';
-import '../storage/storageKeys.dart';
+import '../storage/app_storage.dart';
+import '../storage/storage_keys.dart';
 
 class TokenStore {
   TokenStore(this.storage);

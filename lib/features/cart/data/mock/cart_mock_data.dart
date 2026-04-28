@@ -1,5 +1,5 @@
-import 'package:lingxi_ai_app/features/cart/domain/entities/cartItem.dart';
-import 'package:lingxi_ai_app/features/cart/domain/entities/cartShop.dart';
+import 'package:lingxi_ai_app/features/cart/domain/entities/cart_item.dart';
+import 'package:lingxi_ai_app/features/cart/domain/entities/cart_shop.dart';
 
 class CartMockData {
   // 淘宝购物车常见：按店铺分组

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lingxi_ai_app/features/cart/presentation/pages/cartPage.dart';
-import 'package:lingxi_ai_app/features/home/presentation/pages/homePage.dart';
-import 'package:lingxi_ai_app/features/product/presentation/pages/productListPage.dart';
-import 'package:lingxi_ai_app/features/profile/presentation/pages/profilePage.dart';
+import 'package:lingxi_ai_app/features/cart/presentation/pages/cart_page.dart';
+import 'package:lingxi_ai_app/features/home/presentation/pages/home_page.dart';
+import 'package:lingxi_ai_app/features/product/presentation/pages/product_list_page.dart';
+import 'package:lingxi_ai_app/features/profile/presentation/pages/profile_page.dart';
 
 class MainTabPage extends StatefulWidget {
   const MainTabPage({super.key});

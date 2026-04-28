@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/feedback/appMessenger.dart';
+import '../core/feedback/app_messenger.dart';
 import 'router/app_router.dart';
 import 'router/app_routes.dart';
 

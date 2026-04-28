@@ -1,8 +1,8 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../core/auth/token_store.dart';
-import '../core/network/apiClient.dart';
-import '../core/storage/appStorage.dart';
+import '../core/network/api_client.dart';
+import '../core/storage/app_storage.dart';
 
 class AppServices {
   AppServices();
