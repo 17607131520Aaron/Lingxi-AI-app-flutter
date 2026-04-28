@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 
-import '../auth/tokenStore.dart';
+import '../auth/token_store.dart';
 import '../feedback/appMessenger.dart';
 import 'apiException.dart';
 import 'apiResult.dart';
@@ -11,18 +11,17 @@ typedef JsonMap = Map<String, dynamic>;
 typedef JsonParser<T> = T Function(dynamic data);
 
 class ApiClient {
-  ApiClient({
-    required this.tokenStore,
-    Dio? dio,
-  }) : dioClient = dio ??
-            Dio(
-              BaseOptions(
-                connectTimeout: const Duration(seconds: 15),
-                receiveTimeout: const Duration(seconds: 15),
-                sendTimeout: const Duration(seconds: 15),
-                responseType: ResponseType.json,
-              ),
-            ) {
+  ApiClient({required this.tokenStore, Dio? dio})
+    : dioClient =
+          dio ??
+          Dio(
+            BaseOptions(
+              connectTimeout: const Duration(seconds: 15),
+              receiveTimeout: const Duration(seconds: 15),
+              sendTimeout: const Duration(seconds: 15),
+              responseType: ResponseType.json,
+            ),
+          ) {
     dioClient.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) {
@@ -50,11 +49,7 @@ class ApiClient {
     bool showError = true,
   }) {
     return sendRequest(
-      () => dioClient.get<dynamic>(
-        path,
-        queryParameters: queryParameters,
-        options: options,
-      ),
+      () => dioClient.get<dynamic>(path, queryParameters: queryParameters, options: options),
       parser: parser,
       showError: showError,
     );
@@ -127,10 +122,7 @@ class ApiClient {
   }) async {
     try {
       final response = await caller();
-      return normalizeResponse<T>(
-        response.data,
-        parser: parser,
-      );
+      return normalizeResponse<T>(response.data, parser: parser);
     } on DioException catch (error) {
       final message = resolveDioErrorMessage(error);
       if (showError) {
@@ -146,58 +138,34 @@ class ApiClient {
       if (showError) {
         AppMessenger.showError(error.message);
       }
-      return ApiResult<T>(
-        success: false,
-        code: error.code,
-        message: error.message,
-      );
+      return ApiResult<T>(success: false, code: error.code, message: error.message);
     } catch (error) {
       const message = '请求失败，请稍后重试';
       if (showError) {
         AppMessenger.showError(message);
       }
-      return ApiResult<T>(
-        success: false,
-        message: message,
-      );
+      return ApiResult<T>(success: false, message: message);
     }
   }
 
-  ApiResult<T> normalizeResponse<T>(
-    dynamic body, {
-    JsonParser<T>? parser,
-  }) {
+  ApiResult<T> normalizeResponse<T>(dynamic body, {JsonParser<T>? parser}) {
     if (body is! JsonMap) {
       final parsed = parser != null ? parser(body) : body as T?;
-      return ApiResult<T>(
-        success: true,
-        message: 'success',
-        data: parsed,
-        raw: body,
-      );
+      return ApiResult<T>(success: true, message: 'success', data: parsed, raw: body);
     }
 
     final code = readIntValue(body, ['code', 'status', 'statusCode']);
     final success = readSuccessFlag(body, code);
-    final message = readStringValue(body, ['message', 'msg', 'errorMessage']) ??
-        (success ? 'success' : '请求失败');
+    final message =
+        readStringValue(body, ['message', 'msg', 'errorMessage']) ?? (success ? 'success' : '请求失败');
     final payload = body.containsKey('data') ? body['data'] : body;
 
     if (!success) {
-      throw ApiException(
-        code: code,
-        message: message,
-      );
+      throw ApiException(code: code, message: message);
     }
 
     final parsed = parser != null ? parser(payload) : payload as T?;
-    return ApiResult<T>(
-      success: true,
-      code: code,
-      message: message,
-      data: parsed,
-      raw: body,
-    );
+    return ApiResult<T>(success: true, code: code, message: message, data: parsed, raw: body);
   }
 
   bool readSuccessFlag(JsonMap body, int? code) {
@@ -237,10 +205,7 @@ class ApiClient {
   String resolveDioErrorMessage(DioException error) {
     final responseData = error.response?.data;
     if (responseData is JsonMap) {
-      final message = readStringValue(
-        responseData,
-        ['message', 'msg', 'errorMessage'],
-      );
+      final message = readStringValue(responseData, ['message', 'msg', 'errorMessage']);
       if (message != null) {
         return message;
       }

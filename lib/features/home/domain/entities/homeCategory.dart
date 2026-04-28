@@ -6,4 +6,3 @@ class HomeCategory {
   final String label;
   final IconData icon;
 }
-

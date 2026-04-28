@@ -1,8 +1,5 @@
 class ApiException implements Exception {
-  ApiException({
-    required this.message,
-    this.code,
-  });
+  ApiException({required this.message, this.code});
 
   final String message;
   final int? code;

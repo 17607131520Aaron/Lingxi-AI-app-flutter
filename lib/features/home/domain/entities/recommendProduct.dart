@@ -11,4 +11,3 @@ class RecommendProduct {
   final int originPrice;
   final int sold;
 }
-

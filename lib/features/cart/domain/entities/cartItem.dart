@@ -17,4 +17,3 @@ class CartItem {
   int count;
   bool selected;
 }
-

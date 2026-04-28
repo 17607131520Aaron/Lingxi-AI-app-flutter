@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../core/auth/tokenStore.dart';
+import '../core/auth/token_store.dart';
 import '../core/network/apiClient.dart';
 import '../core/storage/appStorage.dart';
 

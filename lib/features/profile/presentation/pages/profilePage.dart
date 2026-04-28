@@ -23,10 +23,7 @@ class ProfilePage extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFFFF7D7D),
-                        Color(0xFFFF9E9E),
-                      ],
+                      colors: [Color(0xFFFF7D7D), Color(0xFFFF9E9E)],
                     ),
                   ),
                   child: Column(
@@ -37,11 +34,7 @@ class ProfilePage extends StatelessWidget {
                           const CircleAvatar(
                             radius: 28,
                             backgroundColor: Colors.white,
-                            child: Icon(
-                              Icons.person,
-                              color: Color(0xFFFF7D7D),
-                              size: 32,
-                            ),
+                            child: Icon(Icons.person, color: Color(0xFFFF7D7D), size: 32),
                           ),
                           const SizedBox(width: 16),
                           Column(
@@ -58,10 +51,7 @@ class ProfilePage extends StatelessWidget {
                               SizedBox(height: 4),
                               Text(
                                 'ID: user123',
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: Colors.white70,
-                                ),
+                                style: TextStyle(fontSize: 13, color: Colors.white70),
                               ),
                             ],
                           ),
@@ -81,13 +71,7 @@ class ProfilePage extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
-                            '查看全部 >',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.white,
-                            ),
-                          ),
+                          Text('查看全部 >', style: TextStyle(fontSize: 13, color: Colors.white)),
                         ],
                       ),
                       const SizedBox(height: 16),
@@ -131,47 +115,19 @@ class ProfilePage extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    buildProfileItem(
-                      context,
-                      icon: Icons.place_outlined,
-                      title: '收货地址',
-                    ),
+                    buildProfileItem(context, icon: Icons.place_outlined, title: '收货地址'),
                     const Divider(height: 1),
-                    buildProfileItem(
-                      context,
-                      icon: Icons.card_giftcard_outlined,
-                      title: '优惠券',
-                    ),
+                    buildProfileItem(context, icon: Icons.card_giftcard_outlined, title: '优惠券'),
                     const Divider(height: 1),
-                    buildProfileItem(
-                      context,
-                      icon: Icons.star_border,
-                      title: '我的收藏',
-                    ),
+                    buildProfileItem(context, icon: Icons.star_border, title: '我的收藏'),
                     const Divider(height: 1),
-                    buildProfileItem(
-                      context,
-                      icon: Icons.visibility_outlined,
-                      title: '浏览记录',
-                    ),
+                    buildProfileItem(context, icon: Icons.visibility_outlined, title: '浏览记录'),
                     const Divider(height: 1),
-                    buildProfileItem(
-                      context,
-                      icon: Icons.support_agent_outlined,
-                      title: '联系客服',
-                    ),
+                    buildProfileItem(context, icon: Icons.support_agent_outlined, title: '联系客服'),
                     const Divider(height: 1),
-                    buildProfileItem(
-                      context,
-                      icon: Icons.settings_outlined,
-                      title: '设置',
-                    ),
+                    buildProfileItem(context, icon: Icons.settings_outlined, title: '设置'),
                     const Divider(height: 1),
-                    buildProfileItem(
-                      context,
-                      icon: Icons.notifications_none,
-                      title: '消息通知',
-                    ),
+                    buildProfileItem(context, icon: Icons.notifications_none, title: '消息通知'),
                     const Divider(height: 1),
                     buildProfileItem(
                       context,
@@ -199,16 +155,11 @@ class ProfilePage extends StatelessWidget {
   }) {
     final theme = Theme.of(context);
     return ListTile(
-      leading: Icon(
-        icon,
-        color: theme.colorScheme.primary,
-      ),
+      leading: Icon(icon, color: theme.colorScheme.primary),
       title: Text(title),
       trailing: const Icon(Icons.chevron_right),
       onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('$title 功能暂未实现（示例）')),
-        );
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$title 功能暂未实现（示例）')));
       },
     );
   }
@@ -241,18 +192,14 @@ class OrderStatusItem extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(24),
                 ),
-                child: Icon(
-                  icon,
-                  color: const Color(0xFFFF7D7D),
-                ),
+                child: Icon(icon, color: const Color(0xFFFF7D7D)),
               ),
               if (badgeCount > 0)
                 Positioned(
                   right: -4,
                   top: -4,
                   child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                     decoration: BoxDecoration(
                       color: Colors.redAccent,
                       borderRadius: BorderRadius.circular(10),
@@ -270,13 +217,7 @@ class OrderStatusItem extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 6),
-          Text(
-            label,
-            style: const TextStyle(
-              fontSize: 12,
-              color: Colors.white,
-            ),
-          ),
+          Text(label, style: const TextStyle(fontSize: 12, color: Colors.white)),
         ],
       ),
     );

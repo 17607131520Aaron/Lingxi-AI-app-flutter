@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:lingxi_ai_app/features/cart/data/mock/cartMockData.dart';
 import 'package:lingxi_ai_app/features/cart/domain/entities/cartItem.dart';
 import 'package:lingxi_ai_app/features/cart/domain/entities/cartShop.dart';
@@ -106,10 +105,7 @@ class CartPageState extends State<CartPage> {
                 editMode = !editMode;
               });
             },
-            child: Text(
-              editMode ? '完成' : '编辑',
-              style: TextStyle(color: theme.colorScheme.primary),
-            ),
+            child: Text(editMode ? '完成' : '编辑', style: TextStyle(color: theme.colorScheme.primary)),
           ),
         ],
       ),
@@ -118,18 +114,11 @@ class CartPageState extends State<CartPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(
-                    Icons.shopping_cart_outlined,
-                    size: 72,
-                    color: theme.colorScheme.primary,
-                  ),
+                  Icon(Icons.shopping_cart_outlined, size: 72, color: theme.colorScheme.primary),
                   const SizedBox(height: 16),
                   const Text('你的购物车还是空的~', style: TextStyle(fontSize: 16)),
                   const SizedBox(height: 8),
-                  Text(
-                    '去逛逛商品，把喜欢的都加进来吧。',
-                    style: theme.textTheme.bodyMedium,
-                  ),
+                  Text('去逛逛商品，把喜欢的都加进来吧。', style: theme.textTheme.bodyMedium),
                 ],
               ),
             )
@@ -188,15 +177,13 @@ class CartPageState extends State<CartPage> {
                   setState(() {
                     deleteSelected();
                   });
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('已删除选中商品（示例）')),
-                  );
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(const SnackBar(content: Text('已删除选中商品（示例）')));
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('结算 $selectedCount 件，共 ¥$totalPrice（示例）'),
-                    ),
-                  );
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text('结算 $selectedCount 件，共 ¥$totalPrice（示例）')));
                 }
               },
             ),
@@ -237,10 +224,7 @@ class ShopCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                TaobaoCheckbox(
-                  value: shopAllSelected,
-                  onChanged: onShopToggle,
-                ),
+                TaobaoCheckbox(value: shopAllSelected, onChanged: onShopToggle),
                 const SizedBox(width: 6),
                 const Icon(Icons.storefront_outlined, size: 18),
                 const SizedBox(width: 6),
@@ -249,10 +233,7 @@ class ShopCard extends StatelessWidget {
                     shop.shopName,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                 ),
                 const Icon(Icons.chevron_right, color: Colors.black38),
@@ -304,10 +285,7 @@ class CartItemRow extends StatelessWidget {
       background: Container(
         alignment: Alignment.centerRight,
         padding: const EdgeInsets.only(right: 16),
-        decoration: BoxDecoration(
-          color: Colors.redAccent,
-          borderRadius: BorderRadius.circular(12),
-        ),
+        decoration: BoxDecoration(color: Colors.redAccent, borderRadius: BorderRadius.circular(12)),
         child: const Text(
           '删除',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -321,10 +299,7 @@ class CartItemRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TaobaoCheckbox(
-            value: item.selected,
-            onChanged: onToggle,
-          ),
+          TaobaoCheckbox(value: item.selected, onChanged: onToggle),
           const SizedBox(width: 8),
           // 图片占位
           ClipRRect(
@@ -347,11 +322,7 @@ class CartItemRow extends StatelessWidget {
                   item.title,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    height: 1.2,
-                  ),
+                  style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, height: 1.2),
                 ),
                 const SizedBox(height: 6),
                 Container(
@@ -368,18 +339,11 @@ class CartItemRow extends StatelessWidget {
                           item.sku,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                            fontSize: 11,
-                            color: Colors.black54,
-                          ),
+                          style: const TextStyle(fontSize: 11, color: Colors.black54),
                         ),
                       ),
                       const SizedBox(width: 4),
-                      const Icon(
-                        Icons.keyboard_arrow_down,
-                        size: 16,
-                        color: Colors.black45,
-                      ),
+                      const Icon(Icons.keyboard_arrow_down, size: 16, color: Colors.black45),
                     ],
                   ),
                 ),
@@ -404,11 +368,7 @@ class CartItemRow extends StatelessWidget {
                       ),
                     ),
                     const Spacer(),
-                    CountStepper(
-                      value: item.count,
-                      onChanged: onCountChanged,
-                      dense: true,
-                    ),
+                    CountStepper(value: item.count, onChanged: onCountChanged, dense: true),
                   ],
                 ),
                 if (editMode) ...[
@@ -423,18 +383,9 @@ class CartItemRow extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      Text(
-                        '更多',
-                        style: theme.textTheme.bodySmall?.copyWith(
-                          color: Colors.black54,
-                        ),
-                      ),
+                      Text('更多', style: theme.textTheme.bodySmall?.copyWith(color: Colors.black54)),
                       const SizedBox(width: 2),
-                      const Icon(
-                        Icons.more_horiz,
-                        size: 18,
-                        color: Colors.black45,
-                      ),
+                      const Icon(Icons.more_horiz, size: 18, color: Colors.black45),
                     ],
                   ),
                 ],
@@ -476,20 +427,11 @@ class CartBottomBar extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12),
         decoration: const BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Color(0x12000000),
-              blurRadius: 10,
-              offset: Offset(0, -2),
-            ),
-          ],
+          boxShadow: [BoxShadow(color: Color(0x12000000), blurRadius: 10, offset: Offset(0, -2))],
         ),
         child: Row(
           children: [
-            TaobaoCheckbox(
-              value: selectAll,
-              onChanged: onToggleAll,
-            ),
+            TaobaoCheckbox(value: selectAll, onChanged: onToggleAll),
             const SizedBox(width: 4),
             const Text('全选', style: TextStyle(fontSize: 13)),
             const SizedBox(width: 10),
@@ -502,10 +444,7 @@ class CartBottomBar extends StatelessWidget {
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Text(
-                        '合计: ',
-                        style: TextStyle(fontSize: 12, color: Colors.black54),
-                      ),
+                      const Text('合计: ', style: TextStyle(fontSize: 12, color: Colors.black54)),
                       Text(
                         '¥$totalPrice',
                         style: const TextStyle(
@@ -532,12 +471,9 @@ class CartBottomBar extends StatelessWidget {
               child: FilledButton(
                 onPressed: hasAnySelected ? onPrimaryAction : null,
                 style: FilledButton.styleFrom(
-                  backgroundColor:
-                      editMode ? Colors.redAccent : Colors.deepOrangeAccent,
+                  backgroundColor: editMode ? Colors.redAccent : Colors.deepOrangeAccent,
                   disabledBackgroundColor: const Color(0xFFDDDDDD),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20),
-                  ),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                 ),
                 child: Text(
@@ -554,12 +490,7 @@ class CartBottomBar extends StatelessWidget {
 }
 
 class CountStepper extends StatelessWidget {
-  const CountStepper({
-    super.key,
-    required this.value,
-    required this.onChanged,
-    this.dense = false,
-  });
+  const CountStepper({super.key, required this.value, required this.onChanged, this.dense = false});
 
   final int value;
   final ValueChanged<int> onChanged;
@@ -587,16 +518,9 @@ class CountStepper extends StatelessWidget {
           Container(
             width: dense ? 36 : 42,
             alignment: Alignment.center,
-            child: Text(
-              '$value',
-              style: const TextStyle(fontWeight: FontWeight.w600),
-            ),
+            child: Text('$value', style: const TextStyle(fontWeight: FontWeight.w600)),
           ),
-          StepButton(
-            width: width,
-            icon: Icons.add,
-            onPressed: () => onChanged(value + 1),
-          ),
+          StepButton(width: width, icon: Icons.add, onPressed: () => onChanged(value + 1)),
         ],
       ),
     );
@@ -604,12 +528,7 @@ class CountStepper extends StatelessWidget {
 }
 
 class StepButton extends StatelessWidget {
-  const StepButton({
-    super.key,
-    required this.width,
-    required this.icon,
-    required this.onPressed,
-  });
+  const StepButton({super.key, required this.width, required this.icon, required this.onPressed});
 
   final double width;
   final IconData icon;
@@ -622,22 +541,14 @@ class StepButton extends StatelessWidget {
       height: double.infinity,
       child: InkWell(
         onTap: onPressed,
-        child: Icon(
-          icon,
-          size: 16,
-          color: onPressed == null ? Colors.black26 : Colors.black87,
-        ),
+        child: Icon(icon, size: 16, color: onPressed == null ? Colors.black26 : Colors.black87),
       ),
     );
   }
 }
 
 class TaobaoCheckbox extends StatelessWidget {
-  const TaobaoCheckbox({
-    super.key,
-    required this.value,
-    required this.onChanged,
-  });
+  const TaobaoCheckbox({super.key, required this.value, required this.onChanged});
 
   final bool value;
   final ValueChanged<bool> onChanged;
@@ -652,15 +563,10 @@ class TaobaoCheckbox extends StatelessWidget {
         height: 22,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(
-            color: value ? Colors.redAccent : const Color(0xFFBDBDBD),
-            width: 1.5,
-          ),
+          border: Border.all(color: value ? Colors.redAccent : const Color(0xFFBDBDBD), width: 1.5),
           color: value ? Colors.redAccent : Colors.transparent,
         ),
-        child: value
-            ? const Icon(Icons.check, size: 14, color: Colors.white)
-            : null,
+        child: value ? const Icon(Icons.check, size: 14, color: Colors.white) : null,
       ),
     );
   }

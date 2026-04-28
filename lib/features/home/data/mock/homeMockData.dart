@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:lingxi_ai_app/features/home/domain/entities/homeCategory.dart';
 import 'package:lingxi_ai_app/features/home/domain/entities/recommendProduct.dart';
 

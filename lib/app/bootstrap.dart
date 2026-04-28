@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import 'app.dart';
-import 'appServices.dart';
+import 'app_services.dart';
 
 /// App 启动入口：用于承载企业级初始化逻辑。
 ///

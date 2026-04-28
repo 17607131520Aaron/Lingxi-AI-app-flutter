@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:lingxi_ai_app/features/product/data/mock/productCategoryMock.dart';
 
 /// 分类页（参考你提供的左侧分类 + 右侧网格的设计）
@@ -47,8 +46,7 @@ class ProductListPageState extends State<ProductListPage> {
                         color: selected ? Colors.white : Colors.transparent,
                         border: Border(
                           left: BorderSide(
-                            color:
-                                selected ? Colors.redAccent : Colors.transparent,
+                            color: selected ? Colors.redAccent : Colors.transparent,
                             width: 3,
                           ),
                         ),
@@ -58,8 +56,7 @@ class ProductListPageState extends State<ProductListPage> {
                         style: TextStyle(
                           fontSize: 14,
                           color: selected ? Colors.redAccent : Colors.black87,
-                          fontWeight:
-                              selected ? FontWeight.bold : FontWeight.normal,
+                          fontWeight: selected ? FontWeight.bold : FontWeight.normal,
                         ),
                       ),
                     ),
@@ -85,9 +82,9 @@ class ProductListPageState extends State<ProductListPage> {
                     final name = subList[index];
                     return GestureDetector(
                       onTap: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('点击了 $name')),
-                        );
+                        ScaffoldMessenger.of(
+                          context,
+                        ).showSnackBar(SnackBar(content: Text('点击了 $name')));
                       },
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -97,17 +94,12 @@ class ProductListPageState extends State<ProductListPage> {
                               decoration: BoxDecoration(
                                 color: const Color(0xFFF5F5F5),
                                 borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: const Color(0xFFE0E0E0),
-                                ),
+                                border: Border.all(color: const Color(0xFFE0E0E0)),
                               ),
                               child: const Center(
                                 child: Text(
                                   '图',
-                                  style: TextStyle(
-                                    color: Colors.grey,
-                                    fontSize: 12,
-                                  ),
+                                  style: TextStyle(color: Colors.grey, fontSize: 12),
                                 ),
                               ),
                             ),
@@ -118,9 +110,7 @@ class ProductListPageState extends State<ProductListPage> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             textAlign: TextAlign.center,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              fontSize: 11,
-                            ),
+                            style: theme.textTheme.bodySmall?.copyWith(fontSize: 11),
                           ),
                         ],
                       ),

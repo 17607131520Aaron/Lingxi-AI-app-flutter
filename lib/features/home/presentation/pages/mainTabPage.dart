@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:lingxi_ai_app/features/cart/presentation/pages/cartPage.dart';
 import 'package:lingxi_ai_app/features/home/presentation/pages/homePage.dart';
 import 'package:lingxi_ai_app/features/product/presentation/pages/productListPage.dart';
@@ -15,20 +14,12 @@ class MainTabPage extends StatefulWidget {
 class MainTabPageState extends State<MainTabPage> {
   int currentIndex = 0;
 
-  final List<Widget> pages = const [
-    HomePage(),
-    ProductListPage(),
-    CartPage(),
-    ProfilePage(),
-  ];
+  final List<Widget> pages = const [HomePage(), ProductListPage(), CartPage(), ProfilePage()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: currentIndex,
-        children: pages,
-      ),
+      body: IndexedStack(index: currentIndex, children: pages),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,

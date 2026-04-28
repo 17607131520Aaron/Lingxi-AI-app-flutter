@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:lingxi_ai_app/app/router/app_routes.dart';
 import 'package:lingxi_ai_app/features/home/data/mock/homeMockData.dart';
 import 'package:lingxi_ai_app/features/home/domain/entities/homeCategory.dart';
@@ -31,9 +30,9 @@ class HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                 child: SearchBarSection(
                   onTap: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('搜索功能暂未实现（示例）')),
-                    );
+                    ScaffoldMessenger.of(
+                      context,
+                    ).showSnackBar(const SnackBar(content: Text('搜索功能暂未实现（示例）')));
                   },
                 ),
               ),
@@ -54,10 +53,7 @@ class HomePageState extends State<HomePage> {
                       },
                     ),
                     const SizedBox(height: 10),
-                    DotsIndicator(
-                      count: 3,
-                      index: bannerIndex,
-                    ),
+                    DotsIndicator(count: 3, index: bannerIndex),
                   ],
                 ),
               ),
@@ -83,9 +79,7 @@ class HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                 child: Text(
                   '推荐商品',
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -100,22 +94,19 @@ class HomePageState extends State<HomePage> {
                   mainAxisSpacing: 12,
                   childAspectRatio: 0.62,
                 ),
-                delegate: SliverChildBuilderDelegate(
-                  (context, index) {
-                    final p = recommendProducts[index];
-                    return ProductCard(
-                      product: p,
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          AppRoutes.productDetail,
-                          arguments: 'recommend_${index + 1}',
-                        );
-                      },
-                    );
-                  },
-                  childCount: recommendProducts.length,
-                ),
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  final p = recommendProducts[index];
+                  return ProductCard(
+                    product: p,
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.productDetail,
+                        arguments: 'recommend_${index + 1}',
+                      );
+                    },
+                  );
+                }, childCount: recommendProducts.length),
               ),
             ),
           ],
@@ -138,18 +129,12 @@ class SearchBarSection extends StatelessWidget {
       child: Ink(
         height: 40,
         padding: const EdgeInsets.symmetric(horizontal: 12),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-        ),
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
         child: Row(
           children: const [
             Icon(Icons.search, size: 20, color: Colors.black45),
             SizedBox(width: 8),
-            Text(
-              '搜索商品',
-              style: TextStyle(fontSize: 13, color: Colors.black45),
-            ),
+            Text('搜索商品', style: TextStyle(fontSize: 13, color: Colors.black45)),
           ],
         ),
       ),
@@ -158,11 +143,7 @@ class SearchBarSection extends StatelessWidget {
 }
 
 class BannerCarousel extends StatelessWidget {
-  const BannerCarousel({
-    super.key,
-    required this.index,
-    required this.onIndexChanged,
-  });
+  const BannerCarousel({super.key, required this.index, required this.onIndexChanged});
 
   final int index;
   final ValueChanged<int> onIndexChanged;
@@ -226,11 +207,7 @@ class DotsIndicator extends StatelessWidget {
 }
 
 class CategoryGrid extends StatelessWidget {
-  const CategoryGrid({
-    super.key,
-    required this.categories,
-    required this.onTap,
-  });
+  const CategoryGrid({super.key, required this.categories, required this.onTap});
 
   final List<HomeCategory> categories;
   final ValueChanged<HomeCategory> onTap;
@@ -239,10 +216,7 @@ class CategoryGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-      ),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
       child: GridView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         shrinkWrap: true,
@@ -272,10 +246,7 @@ class CategoryGrid extends StatelessWidget {
                   child: Icon(c.icon, size: 20, color: Colors.black87),
                 ),
                 const SizedBox(height: 6),
-                Text(
-                  c.label,
-                  style: const TextStyle(fontSize: 11, color: Colors.black87),
-                ),
+                Text(c.label, style: const TextStyle(fontSize: 11, color: Colors.black87)),
               ],
             ),
           );
@@ -286,11 +257,7 @@ class CategoryGrid extends StatelessWidget {
 }
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({
-    super.key,
-    required this.product,
-    required this.onTap,
-  });
+  const ProductCard({super.key, required this.product, required this.onTap});
 
   final RecommendProduct product;
   final VoidCallback onTap;
@@ -301,10 +268,7 @@ class ProductCard extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       child: Ink(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-        ),
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -312,15 +276,10 @@ class ProductCard extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: const Color(0xFFEFEFEF),
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(12),
-                  ),
+                  borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
                 ),
                 child: const Center(
-                  child: Text(
-                    '图片',
-                    style: TextStyle(color: Colors.grey, fontSize: 12),
-                  ),
+                  child: Text('图片', style: TextStyle(color: Colors.grey, fontSize: 12)),
                 ),
               ),
             ),
@@ -333,11 +292,7 @@ class ProductCard extends StatelessWidget {
                     product.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      height: 1.2,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: const TextStyle(fontSize: 12, height: 1.2, fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(height: 8),
                   Row(
@@ -364,10 +319,7 @@ class ProductCard extends StatelessWidget {
                   const SizedBox(height: 6),
                   Text(
                     '已售${product.sold}件',
-                    style: const TextStyle(
-                      color: Colors.black45,
-                      fontSize: 11,
-                    ),
+                    style: const TextStyle(color: Colors.black45, fontSize: 11),
                   ),
                 ],
               ),

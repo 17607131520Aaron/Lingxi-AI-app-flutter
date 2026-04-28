@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:lingxi_ai_app/app/presentation/pages/not_found_page.dart';
 import 'package:lingxi_ai_app/app/router/app_routes.dart';
 import 'package:lingxi_ai_app/features/auth/presentation/pages/loginPage.dart';
@@ -13,20 +12,11 @@ class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.login:
-        return MaterialPageRoute(
-          builder: (_) => const LoginPage(),
-          settings: settings,
-        );
+        return MaterialPageRoute(builder: (_) => const LoginPage(), settings: settings);
       case AppRoutes.home:
-        return MaterialPageRoute(
-          builder: (_) => const MainTabPage(),
-          settings: settings,
-        );
+        return MaterialPageRoute(builder: (_) => const MainTabPage(), settings: settings);
       case AppRoutes.productList:
-        return MaterialPageRoute(
-          builder: (_) => const ProductListPage(),
-          settings: settings,
-        );
+        return MaterialPageRoute(builder: (_) => const ProductListPage(), settings: settings);
       case AppRoutes.productDetail:
         final args = settings.arguments;
         final productId = args is String ? args : null;
@@ -35,20 +25,11 @@ class AppRouter {
           settings: settings,
         );
       case AppRoutes.cart:
-        return MaterialPageRoute(
-          builder: (_) => const CartPage(),
-          settings: settings,
-        );
+        return MaterialPageRoute(builder: (_) => const CartPage(), settings: settings);
       case AppRoutes.profile:
-        return MaterialPageRoute(
-          builder: (_) => const ProfilePage(),
-          settings: settings,
-        );
+        return MaterialPageRoute(builder: (_) => const ProfilePage(), settings: settings);
       default:
-        return MaterialPageRoute(
-          builder: (_) => const NotFoundPage(),
-          settings: settings,
-        );
+        return MaterialPageRoute(builder: (_) => const NotFoundPage(), settings: settings);
     }
   }
 }
