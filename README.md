@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+## Project Docs
+
+- [Flutter 入门速成（基于 Lingxi AI App 项目）](docs/flutter_quickstart_lingxi.md)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

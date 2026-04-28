@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:lingxi_ai_app/features/role/presentation/widgets/role_switcher_card.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,6 +108,13 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                 ),
+              ),
+
+              const SizedBox(height: 12),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: const RoleSwitcherCard(),
               ),
 
               const SizedBox(height: 12),
